@@ -315,7 +315,7 @@ h1 {
     color:#000;
     font-weight: bold;
 }
-.cart--finalizar {
+.cart--finish {
     padding:20px 30px;
     border-radius:20px;
     background-color:#48d05f;
@@ -326,7 +326,7 @@ h1 {
     border:2px solid #63f77c;
     transition: all ease .2s;
 }
-.cart--finalizar:hover {
+.cart--finish:hover {
     background-color:#35af4a;
 }
 

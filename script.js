@@ -105,8 +105,14 @@ function updateCart() {
         c('aside').classList.add('show');
         c('.cart').innerHTML = '';
 
+        let subtotal = 0;
+        let discount = 0;
+        let total = 0;
+
         for(let i in cart) {
             let pizzaItem = pizzaJson.find((item) => item.id == cart[i].id);
+            subtotal += pizzaItem.price * cart[i].qt;
+
             let cartItem = c('.models .cart--item').cloneNode(true);
             
             let pizzaSizeName;
@@ -142,6 +148,14 @@ function updateCart() {
 
             c('.cart').append(cartItem);
         }
+
+        discount = subtotal * 0.1;
+        total = subtotal - discount;
+
+        c('.subtotal span:last-child').innerHTML = `U$ ${subtotal.toFixed(2)}`;
+        c('.discount span:last-child').innerHTML = `U$ ${discount.toFixed(2)}`;
+        c('.total span:last-child').innerHTML = `U$ ${total.toFixed(2)}`;
+
     } else {
         c('aside').classList.remove('show');
     }
